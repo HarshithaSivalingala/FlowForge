@@ -175,8 +175,4 @@ Run these once after initial setup to have a working dataset ready to go.
 - **Additive machine assignments** — New machine assignments are appended to existing ones rather than replacing them, preserving historical allocation data.
 - **Payload-driven updates** — The PUT endpoint trusts the frontend payload for `availableQuantity`, allowing the cascading unlock logic to flow naturally without requiring a separate re-calculation step on the server.
 
----
 
-## License
-
-MIT
