@@ -12,27 +12,6 @@ The core philosophy is simple: **a unit cannot enter a process until the previou
 
 ---
 
-## How It Works
-
-```
-Order Created
-      │
-      ▼
-┌─────────────┐     ┌─────────────┐     ┌─────────────┐
-│  Process 1  │────▶│  Process 2  │────▶│  Process 3  │
-│  (Cutting)  │     │  (Chipping) │     │  (Drilling) │
-└─────────────┘     └─────────────┘     └─────────────┘
-   Assign Machines     Locked until        Locked until
-   Complete via Inv    Process 1 completes  Process 2 completes
-```
-
-1. **Create** — A work order is raised for a product with a target quantity. Only the first process is active; all downstream processes are locked.
-2. **Assign** — Machines are assigned to the active process. The total assigned must equal the full available quantity before the order can be saved.
-3. **Complete** — When inventory is available, units are marked as completed against the assigned quantity. This unlocks the next process with the completed count as its new available quantity.
-4. **Repeat** — The cycle continues until the final process reaches full completion, at which point the order is marked complete.
-
----
-
 ## Architecture
 
 ```
